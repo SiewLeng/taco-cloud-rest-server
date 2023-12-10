@@ -1,6 +1,5 @@
 package tacos.controllers;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +25,7 @@ public class IngredientController {
 	public ResponseEntity<Ingredient> findIngredientById_1(@PathVariable("id") String id) {
 		Optional<Ingredient> ingredient = ingredientService.findIngredientById(id);
 		if (ingredient.isPresent()) {
-			return new ResponseEntity<>(ingredient.get(), HttpStatus.OK);
+			return new ResponseEntity<>(ingredient.get(), HttpStatus.FOUND);
 		} else {
 			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
 		}
@@ -36,7 +35,7 @@ public class IngredientController {
 	public ResponseEntity<Ingredient> findIngredientById_2(@RequestParam(name="id") String id) {
 		Optional<Ingredient> ingredient = ingredientService.findIngredientById(id);
 		if (ingredient.isPresent()) {
-			return new ResponseEntity<>(ingredient.get(), HttpStatus.OK);
+			return new ResponseEntity<>(ingredient.get(), HttpStatus.FOUND);
 		} else {
 			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
 		}
