@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.validation.constraints.NotNull;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,13 +17,17 @@ public class Taco {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@NotNull
 	private Long id;
-	
+
+	@NotNull
 	private String name;
 	
 	@ManyToMany()
+	@NotNull
 	private List<Ingredient> ingredients;
 	
+	@NotNull
 	private final Date createdAt = new Date();
 	
 	public Long getId() {

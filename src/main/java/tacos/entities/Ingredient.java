@@ -3,14 +3,19 @@ package tacos.entities;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
+import javax.validation.constraints.NotNull;
+
 @Entity
 public class Ingredient {
 	
 	@Id
+	@NotNull
 	private final String id;
 	
+	@NotNull
 	private final String name;
 	
+	@NotNull
 	private final Type type;
 	
 	public enum Type {
